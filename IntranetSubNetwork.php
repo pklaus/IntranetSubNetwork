@@ -107,7 +107,7 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 		$visitorInfo =& $notification->getNotificationObject();
 		
 		
-		$hostname = $visitorInfo['location_ip'];
+		$hostname = inet_ntop($visitorInfo['location_ip']);
 		/**
 		 *********************************************************************************************
 		 *********************************************************************************************
@@ -115,9 +115,10 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 		 *********************************************************************************************
 		 *********************************************************************************************
 		**/ 
-if ($visitorInfo['location_ip']>='2493968850' && $visitorInfo['location_ip']<='2493969105')   { $hostname ='Net 1'; }
-if ($visitorInfo['location_ip']>='2493969105' && $visitorInfo['location_ip']<='2493970125')   { $hostname ='Net 2'; }
-if ($visitorInfo['location_ip']>='2493970125' && $visitorInfo['location_ip']<='2494424280')   { $hostname ='Net 3'; }
+if (Piwik_IP::isIpInRange($visitorInfo['location_ip'], array('192.0.2.0/24')))       { $hostname ='TEST-NET'; }
+if (Piwik_IP::isIpInRange($visitorInfo['location_ip'], array('198.51.100.0/24')))    { $hostname ='TEST-NET-2'; } 
+if (Piwik_IP::isIpInRange($visitorInfo['location_ip'], array('2001:db8::/33', 
+                                                             '2001:db8:8000::/33'))) { $hostname ='Doc-IPv6'; }
 		/**
 		 *********************************************************************************************
 		 *********************************************************************************************
