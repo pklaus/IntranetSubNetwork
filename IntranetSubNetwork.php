@@ -19,7 +19,7 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 		$info = array(
 			'name' => 'IntranetSubNetwork',
 			'description' => 'Assigns network names to the visitors according to their IP.',
-			'author' => 'Philipp Klaus (orig: Alan)',
+			'author' => 'Philipp Klaus (orig: Alain)',
 			'homepage' => 'https://github.com/pklaus/IntranetSubNetwork',
 			'version' => '0.3',
 			'TrackerPlugin' => true, // this plugin must be loaded during the stats logging
