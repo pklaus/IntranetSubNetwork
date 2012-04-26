@@ -1,6 +1,6 @@
 <?php
 $translations = array (
-	'IntranetSubNetwork_WidgetIntranetSubNetwork' => 'Benutzer Netzwerke',
+	'IntranetSubNetwork_WidgetIntranetSubNetwork' => 'Besucher Netzwerke',
 	'IntranetSubNetwork_ColumnIntranetSubNetwork' => 'Netzwerk Name',
 );
 
