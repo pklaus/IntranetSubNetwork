@@ -21,8 +21,8 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 			'description' => 'Assigns network names to the visitors according to their IP.',
 			'author' => 'Philipp Klaus (orig: Alain)',
 			'homepage' => 'https://github.com/pklaus/IntranetSubNetwork',
-			'author_homepage' => 'http://blog.philippklaus.de',
-			'version' => '0.3',
+			'author_homepage' => 'http://blog.philippklaus.de/2012/04/piwik-plugin-intranetsubnetwork-show-ipv4-vs-ipv6-statistics/',
+			'version' => '0.3.8',
 			'TrackerPlugin' => true, // this plugin must be loaded during the stats logging
 			'translationAvailable' => true,
 		);
