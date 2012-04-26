@@ -23,6 +23,7 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 			'homepage' => 'https://github.com/pklaus/IntranetSubNetwork',
 			'version' => '0.3',
 			'TrackerPlugin' => true, // this plugin must be loaded during the stats logging
+			'translationAvailable' => true,
 		);
 		
 		return $info;
