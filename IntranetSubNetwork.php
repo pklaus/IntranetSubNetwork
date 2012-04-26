@@ -68,7 +68,7 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 	function archivePeriod( $notification )
 	{
 		$archiveProcessing = $notification->getNotificationObject();
-		$dataTableToSum = array( 'IntranetSubNetwork_hostnameExt' );
+		$dataTableToSum = array( 'IntranetSubNetwork_networkNameExt' );
 		$archiveProcessing->archiveDataTable($dataTableToSum);
 	}
 
@@ -79,7 +79,7 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 	{
 		$archiveProcessing = $notification->getNotificationObject();
 		
-		$recordName = 'IntranetSubNetwork_hostnameExt';
+		$recordName = 'IntranetSubNetwork_networkNameExt';
 		$labelSQL = "location_IntranetSubNetwork";
 		$interestByIntranetSubNetwork = $archiveProcessing->getArrayInterestForLabel($labelSQL);
 		$tableIntranetSubNetwork = $archiveProcessing->getDataTableFromArray($interestByIntranetSubNetwork);

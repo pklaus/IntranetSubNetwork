@@ -31,9 +31,9 @@ class Piwik_IntranetSubNetwork_API
 	{
 		Piwik::checkUserHasViewAccess( $idSite );
 		$archive = Piwik_Archive::build($idSite, $period, $date, $segment );
-		$dataTable = $archive->getDataTable('IntranetSubNetwork_hostnameExt');
+		$dataTable = $archive->getDataTable('IntranetSubNetwork_networkNameExt');
 		$dataTable->filter('Sort', array(Piwik_Archive::INDEX_NB_VISITS));
-		$dataTable->queueFilter('ColumnCallbackReplace', array('label', 'Piwik_getHostSubnetName'));
+		$dataTable->queueFilter('ColumnCallbackReplace', array('label', 'Piwik_getSubnetName'));
 		$dataTable->queueFilter('ReplaceColumnNames');
 		//$dataTable->queueFilter('ReplaceSummaryRowLabel');
 		return $dataTable;

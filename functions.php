@@ -8,7 +8,7 @@
  * @package Piwik_IntranetSubNetwork
  */
 
-function Piwik_getHostSubnetName($in)
+function Piwik_getSubnetName($in)
 {
 	if(empty($in))
 		return Piwik_Translate('General_Unknown');
