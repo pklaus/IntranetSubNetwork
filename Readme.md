@@ -8,13 +8,13 @@ vs. IPv6. You can, however, use it to identify the number of users from
 your local network (Intranet) or from any other subnet.  
 This is done by assigning the network different names in the file
 [IntranetSubNetwork.php][]
-(see the [lines below #111][]).
+(see the [lines below #102][]).
 Here is an example that lets Piwik assign the network label *Global
 IPv4* to any IPv4 visitors:
 
 ```php
 <?php
-if (Piwik_IP::isIpInRange($visitorInfo['location_ip'], array('0.0.0.0/0'))) { $hostname ='Global IPv4';  }
+if (Piwik_IP::isIpInRange($visitorInfo['location_ip'], array('0.0.0.0/0'))) { $networkName = 'Global IPv4'; }
 ?>
 ````
 
@@ -37,4 +37,4 @@ git clone git://github.com/pklaus/IntranetSubNetwork.git
 ```
 
 [IntranetSubNetwork.php]: https://github.com/pklaus/IntranetSubNetwork/blob/master/IntranetSubNetwork.php
-[lines below #111]: https://github.com/pklaus/IntranetSubNetwork/blob/master/IntranetSubNetwork.php#L111
+[lines below #102]: https://github.com/pklaus/IntranetSubNetwork/blob/master/IntranetSubNetwork.php#L102

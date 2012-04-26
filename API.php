@@ -21,22 +21,21 @@ class Piwik_IntranetSubNetwork_API
 	static public function getInstance()
 	{
 		if (self::$instance == null)
-		{            
-			$c = __CLASS__;
-			self::$instance = new $c();
+		{
+			self::$instance = new self;
 		}
 		return self::$instance;
 	}
 
-	public function getIntranetSubNetwork( $idSite, $period, $date )
+	public function getIntranetSubNetwork( $idSite, $period, $date, $segment = false )
 	{
 		Piwik::checkUserHasViewAccess( $idSite );
-		$archive = Piwik_Archive::build($idSite, $period, $date );
+		$archive = Piwik_Archive::build($idSite, $period, $date, $segment );
 		$dataTable = $archive->getDataTable('IntranetSubNetwork_hostnameExt');
 		$dataTable->filter('Sort', array(Piwik_Archive::INDEX_NB_VISITS));
-		$dataTable->queueFilter('ColumnCallbackAddMetadata', array('label', 'url', 'Piwik_getHostSubnetUrl'));
 		$dataTable->queueFilter('ColumnCallbackReplace', array('label', 'Piwik_getHostSubnetName'));
 		$dataTable->queueFilter('ReplaceColumnNames');
+		//$dataTable->queueFilter('ReplaceSummaryRowLabel');
 		return $dataTable;
 	}
 }
