@@ -2,9 +2,8 @@
 /**
  * Piwik - Open source web analytics
  * 
- * @link http://piwik.org
+ * @link https://github.com/pklaus/IntranetSubNetwork
  * @license http://www.gnu.org/licenses/gpl-3.0.html Gpl v3 or later
- * @version $Id: API.php 1335 2009-07-27 02:23:37Z vipsoft $
  * 
  * @package Piwik_IntranetSubNetwork
  */

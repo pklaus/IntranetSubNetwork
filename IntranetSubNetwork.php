@@ -2,9 +2,8 @@
 /**
  * Piwik - Open source web analytics
  * 
- * @link http://piwik.org
+ * @link https://github.com/pklaus/IntranetSubNetwork
  * @license http://www.gnu.org/licenses/gpl-3.0.html Gpl v3 or later
- * @version $Id: IntranetSubNetwork.php 1138 2009-05-18 04:43:56Z matt $
  * 
  * @package Piwik_IntranetSubNetwork
  */
@@ -19,10 +18,10 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 	{
 		$info = array(
 			'name' => 'IntranetSubNetwork',
-			'description' => 'Reports the IntranetSubNetwork of the visitors.',
-			'author' => 'Piwik',
-			'homepage' => 'http://piwik.org/',
-			'version' => '0.2',
+			'description' => 'Assigns network names to the visitors according to their IP.',
+			'author' => 'Philipp Klaus (orig: Alan)',
+			'homepage' => 'https://github.com/pklaus/IntranetSubNetwork',
+			'version' => '0.3',
 			'TrackerPlugin' => true, // this plugin must be loaded during the stats logging
 		);
 		
