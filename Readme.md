@@ -1,5 +1,6 @@
 This is a fork of the Piwik plugin *IntranetSubNetwork* from
-<http://dev.piwik.org/trac/ticket/1054>
+<http://dev.piwik.org/trac/ticket/1054>. Changes since that version can
+be seen on <https://github.com/pklaus/IntranetSubNetwork/compare/v0.2...HEAD>.
 
 ### What this plugin does and how it works
 
@@ -35,6 +36,14 @@ install the plugin this way (makes it easier to keep it up to date):
 cd /var/www/path/to/your/piwik/installation/plugins/
 git clone git://github.com/pklaus/IntranetSubNetwork.git
 ```
+
+#### Upgrading Considerations
+
+If you had the original IntranetSubNetwork plugin (v0.2 by Alain) installed, you should
+be carefull about upgrading because I [changed the name of the binary
+archive blob](https://github.com/pklaus/IntranetSubNetwork/commit/98bc79f).
+This means that you have to discard the archive tables in your Piwik
+database when upgrading from this old version.
 
 [IntranetSubNetwork.php]: https://github.com/pklaus/IntranetSubNetwork/blob/master/IntranetSubNetwork.php
 [lines below #102]: https://github.com/pklaus/IntranetSubNetwork/blob/master/IntranetSubNetwork.php#L102
