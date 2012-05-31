@@ -22,9 +22,36 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 			'author' => 'Philipp Klaus (orig: Alain)',
 			'homepage' => 'https://github.com/pklaus/IntranetSubNetwork',
 			'author_homepage' => 'http://blog.philippklaus.de/2012/04/piwik-plugin-intranetsubnetwork-show-ipv4-vs-ipv6-statistics/',
-			'version' => '0.4',
+			'version' => '0.4.2',
 			'TrackerPlugin' => true, // this plugin must be loaded during the stats logging
 			'translationAvailable' => true,
+		);
+	}
+
+	public function getReportMetadata($notification)
+	{
+		$reports = &$notification->getNotificationObject();
+		$reports[] = array(
+			'category' => Piwik_Translate('General_Visitors'),
+			'name' => Piwik_Translate('IntranetSubNetwork_WidgetIntranetSubNetwork'),
+			'module' => 'IntranetSubNetwork',
+			'action' => 'getIntranetSubNetwork',
+			'dimension' => Piwik_Translate('IntranetSubNetwork_ColumnIntranetSubNetwork'),
+			'documentation' => Piwik_Translate('IntranetSubNetwork_WidgetIntranetSubNetworkDocumentation', '<br />'),
+			'order' => 50
+		);
+	}
+
+	public function getSegmentsMetadata($notification)
+	{
+		$segments =& $notification->getNotificationObject();
+		$segments[] = array(
+			'type' => 'dimension',
+			'category' => 'Visit',
+			'name' => Piwik_Translate('IntranetSubNetwork_ColumnIntranetSubNetwork'),
+			'segment' => 'subnetwork',
+			'acceptedValues' => 'Global IPv4, Global IPv6 etc.',
+			'sqlSegment' => 'log_visit.location_IntranetSubNetwork'
 		);
 	}
 	
@@ -34,6 +61,8 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 			'ArchiveProcessing_Day.compute' => 'archiveDay',
 			'ArchiveProcessing_Period.compute' => 'archivePeriod',
 			'Tracker.newVisitorInformation' => 'logIntranetSubNetworkInfo',
+			'API.getReportMetadata' => 'getReportMetadata',
+			'API.getSegmentsMetadata' => 'getSegmentsMetadata',
 			'WidgetsList.add' => 'addWidget',
 		);
 	}
