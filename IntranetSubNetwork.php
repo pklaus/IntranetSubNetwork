@@ -38,6 +38,14 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 			'action' => 'getIntranetSubNetwork',
 			'dimension' => Piwik_Translate('IntranetSubNetwork_ColumnIntranetSubNetwork'),
 			'documentation' => Piwik_Translate('IntranetSubNetwork_WidgetIntranetSubNetworkDocumentation', '<br />'),
+			'metrics' => array(
+					'nb_visits',
+					'nb_uniq_visitors',
+					'nb_uniq_visitors_percentage' => Piwik_Translate('General_ColumnPercentageUniqueVisitors'),
+					'nb_visits_percentage' => Piwik_Translate('General_ColumnPercentageVisits'),
+			),
+			// There is no processedMetrics for this report
+			'processedMetrics' => array(),
 			'order' => 50
 		);
 	}
@@ -147,5 +155,5 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 
 		// add the IntranetSubNetwork value in the table log_visit
 		$visitorInfo['location_IntranetSubNetwork'] = substr($networkName, 0, 100);
-  }
+	}
 }

@@ -36,6 +36,43 @@ class Piwik_IntranetSubNetwork_API
 		$dataTable->queueFilter('ColumnCallbackReplace', array('label', 'Piwik_getSubnetName'));
 		$dataTable->queueFilter('ReplaceColumnNames');
 		//$dataTable->queueFilter('ReplaceSummaryRowLabel');
+
+		$column = 'nb_visits';
+		$percCol = 'nb_visits_percentage';
+		$percColName = 'General_ColumnPercentageVisits';
+		if($period == 'day')
+		{
+			$column = 'nb_uniq_visitors';
+			$percCol = 'nb_uniq_visitors_percentage';
+			$percColName = 'General_ColumnPercentageUniqueVisitors';
+		}
+
+		$visitsSums = $archive->getNumeric($column);
+		//$visitsSum = Piwik_VisitsSummary_API::getInstance()->getVisits($idSite, $period, $date);
+		//print_r($visitsSums);
+		// check whether given tables are arrays
+		if($dataTable instanceof Piwik_DataTable_Array) {
+			$tableArray = $dataTable->getArray();
+			$visitSumsArray = $visitsSums->getArray();
+		} else {
+			$tableArray = Array($dataTable);
+			$visitSumsArray = Array($visitsSums);
+		}
+		// walk through the results and calculate the percentage
+		foreach($tableArray as $key => $table) {
+			foreach($visitSumsArray AS $k => $visits) {
+				if($k == $key) {
+					if(is_object($visits))
+						$visitsSumTotal = (float)$visits->getFirstRow()->getColumn(0);
+					else
+						$visitsSumTotal = (float)$visits;
+				}
+			}
+
+			$table->filter('ColumnCallbackAddColumnPercentage', array($percCol, Piwik_Archive::INDEX_NB_VISITS, $visitsSumTotal, 1));
+			// we don't want <0% or >100%:
+			$table->filter('RangeCheck', array($percCol));
+		}
 		return $dataTable;
 	}
 }
