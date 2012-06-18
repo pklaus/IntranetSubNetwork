@@ -41,7 +41,6 @@ class Piwik_IntranetSubNetwork extends Piwik_Plugin
 			'metrics' => array(
 					'nb_visits',
 					'nb_uniq_visitors',
-					'nb_uniq_visitors_percentage' => Piwik_Translate('General_ColumnPercentageUniqueVisitors'),
 					'nb_visits_percentage' => Piwik_Translate('General_ColumnPercentageVisits'),
 			),
 			// There is no processedMetrics for this report

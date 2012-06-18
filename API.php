@@ -40,12 +40,6 @@ class Piwik_IntranetSubNetwork_API
 		$column = 'nb_visits';
 		$percCol = 'nb_visits_percentage';
 		$percColName = 'General_ColumnPercentageVisits';
-		if($period == 'day')
-		{
-			$column = 'nb_uniq_visitors';
-			$percCol = 'nb_uniq_visitors_percentage';
-			$percColName = 'General_ColumnPercentageUniqueVisitors';
-		}
 
 		$visitsSums = $archive->getNumeric($column);
 		//$visitsSum = Piwik_VisitsSummary_API::getInstance()->getVisits($idSite, $period, $date);

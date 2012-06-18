@@ -22,11 +22,7 @@ class Piwik_IntranetSubNetwork_Controller extends Piwik_Controller
 		$percCol = 'nb_visits_percentage';
 		$percColName = 'General_ColumnPercentageVisits';
 		if($view->period == 'day')
-		{
 			$column = 'nb_uniq_visitors';
-			$percCol = 'nb_uniq_visitors_percentage';
-			$percColName = 'General_ColumnPercentageUniqueVisitors';
-		}
 		$view->setColumnsToDisplay( array('label',$percCol,$column) );
 		$view->setColumnTranslation('label', Piwik_Translate('IntranetSubNetwork_ColumnIntranetSubNetwork'));
 		$view->setColumnTranslation($percCol, str_replace('% ', '%&nbsp;', Piwik_Translate($percColName)));
