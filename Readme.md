@@ -45,5 +45,11 @@ archive blob](https://github.com/pklaus/IntranetSubNetwork/commit/98bc79f).
 This means that you have to discard the archive tables in your Piwik
 database when upgrading from this old version.
 
+### Resources
+
+* If all you're interested in is IPv6 vs IPv4 users, the plugin [IPv6Usage][]
+  may also do the job for you.
+
 [IntranetSubNetwork.php]: https://github.com/pklaus/IntranetSubNetwork/blob/master/IntranetSubNetwork.php
 [lines below #131]: https://github.com/pklaus/IntranetSubNetwork/blob/master/IntranetSubNetwork.php#L131
+[IPv6Usage]: https://github.com/halfdan/IPv6Usage
